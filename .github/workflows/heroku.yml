@@ -1,0 +1,16 @@
+name: Pipeline React
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deployHeroku:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+       with:
+      heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+      heroku_app_name: "{entregaweb}" #Must be unique in Heroku
+      heroku_email: "{na.plata@uniandes.edu.co}"
